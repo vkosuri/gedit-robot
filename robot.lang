@@ -26,9 +26,10 @@
   <metadata>
     <property name="mimetypes">text/x-robotframework</property>
     <property name="globs">*.robot</property>
-    <property name="line-comment-start">Comment;#</property>    
+    <property name="line-comment-start">#</property>    
   </metadata>
   <styles>
+    <style id="word-comment"      _name="Comment"                map-to="def:comment"/>  
     <style id="module-handler"    _name="Module Handler"         map-to="def:preprocessor"/>
     <style id="test-settings"     _name="Test settings"          map-to="def:preprocessor"/>
     <style id="string"            _name="String"                 map-to="def:string"/>
@@ -85,6 +86,11 @@
         )
       </match>
     </context>
+    
+    <context id="word-comment" style-ref="word-comment" class="comment" class-disabled="no-spell-check">
+        <match case-sensitive="false">\s+?Comment.+</match>
+    </context>
+    
     <define-regex id="string-prefix">(u|U)?</define-regex>
     <define-regex id="raw-string-prefix">(r|ur|R|UR|Ur|uR)</define-regex>    
     <context id="double-quoted-string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
@@ -504,6 +510,9 @@
     </context>
     <context id="robot" class="no-spell-check">
       <include>
+        <context ref="def:shebang"/>
+        <context ref="def:shell-like-comment"/>
+        <context ref="word-comment"/>
         <context ref="module-handler"/>
         <context ref="test-settings"/>
         <context ref="double-quoted-string"/>
