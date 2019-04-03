@@ -122,11 +122,15 @@
     <!--
         Robot Keywords
     -->
+    <define-regex id="keyword-prefix">\A\s*|\t|  +</define-regex>
+    <define-regex id="keyword-suffix">\s*\Z|\t|  +</define-regex>
     <context id="builtin-keyword" style-ref="builtin-keyword">
         <!--
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Call Method</keyword>
         <keyword>Catenate</keyword>
         <keyword>Comment</keyword>
@@ -234,6 +238,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Convert To Lowercase</keyword>
         <keyword>Convert To Uppercase</keyword>
         <keyword>Decode Bytes To String</keyword>
@@ -269,6 +275,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Append To List</keyword>
         <keyword>Combine Lists</keyword>
         <keyword>Convert To Dictionary </keyword>
@@ -318,6 +326,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Close All Connections</keyword>
         <keyword>Close Connection</keyword>
         <keyword>Execute Command</keyword>
@@ -344,6 +354,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Add Time To Time</keyword>
         <keyword>Convert Date</keyword>
         <keyword>Convert Time</keyword>
@@ -357,6 +369,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Execute Manual Step</keyword>
         <keyword>Get Selection From User</keyword>
         <keyword>Get Value From User</keyword>
@@ -367,6 +381,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Append To Environment Variable</keyword>
         <keyword>Append To File</keyword>
         <keyword>Copy Directory</keyword>
@@ -434,6 +450,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Get Process Id</keyword>
         <keyword>Get Process Object</keyword>
         <keyword>Get Process Result</keyword>
@@ -455,6 +473,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Add Element</keyword>
         <keyword>Clear Element</keyword>
         <keyword>Copy Element</keyword>
@@ -498,6 +518,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Set Screenshot Directory</keyword>
         <keyword>Take Screenshot</keyword>
         <keyword>Take Screenshot Without Embedding</keyword>
