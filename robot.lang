@@ -26,16 +26,16 @@
   <metadata>
     <property name="mimetypes">text/x-robotframework</property>
     <property name="globs">*.robot</property>
-    <property name="line-comment-start">#</property>    
+    <property name="line-comment-start">#</property>
   </metadata>
   <styles>
-    <style id="word-comment"      _name="Comment"                map-to="def:comment"/>  
+    <style id="word-comment"      _name="Comment"                map-to="def:comment"/>
     <style id="module-handler"    _name="Module Handler"         map-to="def:preprocessor"/>
     <style id="test-settings"     _name="Test settings"          map-to="def:preprocessor"/>
     <style id="string"            _name="String"                 map-to="def:string"/>
     <style id="escaped-char"      _name="Escaped Character"      map-to="def:special-char"/>
     <style id="format"            _name="Format"                 map-to="def:character"/>
-    <style id="variable"          _name="Variable"               map-to="def:type"/>    
+    <style id="variable"          _name="Variable"               map-to="def:type"/>
     <style id="builtin-keyword"   _name="Builtin Keywords"       map-to="def:keyword"/>
     <style id="string-keyword"    _name="String Keywords"        map-to="def:keyword"/>
     <style id="collections-keyword" _name="Collections Keywords" map-to="def:keyword"/>
@@ -45,13 +45,13 @@
     <style id="os-keyword"        _name="OS Keywords"            map-to="def:keyword"/>
     <style id="process-keyword"   _name="Process Keywords"       map-to="def:keyword"/>
     <style id="xml-keyword"       _name="XML Keywords"           map-to="def:keyword"/>
-    <style id="screen-keyword"    _name="Scrrenshot Keywords"    map-to="def:keyword"/>    
+    <style id="screen-keyword"    _name="Scrrenshot Keywords"    map-to="def:keyword"/>
   </styles>
   <definitions>
     <context id="module-handler" style-ref="module-handler">
         <match extended="true" case-sensitive="false">
             (Library|Suite Setup|Suite Teardown|Documentation|Force Tags|Metadata)
-        </match>            
+        </match>
     </context>
     <context id="test-settings" style-ref="test-settings" end-at-line-end="true" class-disabled="no-spell-check">
         <start>\[</start>
@@ -86,13 +86,13 @@
         )
       </match>
     </context>
-    
+
     <context id="word-comment" style-ref="word-comment" class="comment" class-disabled="no-spell-check">
         <match case-sensitive="false">\s+?Comment.+</match>
     </context>
-    
+
     <define-regex id="string-prefix">(u|U)?</define-regex>
-    <define-regex id="raw-string-prefix">(r|ur|R|UR|Ur|uR)</define-regex>    
+    <define-regex id="raw-string-prefix">(r|ur|R|UR|Ur|uR)</define-regex>
     <context id="double-quoted-string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
       <start>\%{string-prefix}"</start>
       <end>"</end>
@@ -122,22 +122,20 @@
     <!--
         Robot Keywords
     -->
+    <define-regex id="keyword-prefix">\A\s*|\t|  +</define-regex>
+    <define-regex id="keyword-suffix">\s*\Z|\t|  +</define-regex>
     <context id="builtin-keyword" style-ref="builtin-keyword">
         <!--
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
-        <keyword>Run Keyword If</keyword>
-        <keyword>Evaluate</keyword>
-        <keyword>Should Be True</keyword>
-        <keyword>Should Not Be True</keyword>
-        <keyword>Should Be Equal</keyword>
-        <keyword>Should Not Be Equal</keyword>
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Call Method</keyword>
         <keyword>Catenate</keyword>
         <keyword>Comment</keyword>
-        <keyword>Continue For Loop</keyword>
         <keyword>Continue For Loop If</keyword>
+        <keyword>Continue For Loop</keyword>
         <keyword>Convert To Binary</keyword>
         <keyword>Convert To Boolean</keyword>
         <keyword>Convert To Bytes</keyword>
@@ -149,43 +147,41 @@
         <keyword>Create Dictionary</keyword>
         <keyword>Create List</keyword>
         <keyword>Evaluate</keyword>
-        <keyword>Exit For Loop</keyword>
         <keyword>Exit For Loop If</keyword>
+        <keyword>Exit For Loop</keyword>
         <keyword>Fail</keyword>
         <keyword>Fatal Error</keyword>
         <keyword>Get Count</keyword>
         <keyword>Get Length</keyword>
         <keyword>Get Library Instance</keyword>
         <keyword>Get Time</keyword>
-        <keyword>Get Variable Value</keyword>
         <keyword>Get Variables</keyword>
+        <keyword>Get Variable Value</keyword>
         <keyword>Import Library</keyword>
         <keyword>Import Resource</keyword>
         <keyword>Import Variables</keyword>
         <keyword>Keyword Should Exist</keyword>
         <keyword>Length Should Be</keyword>
-        <keyword>Log</keyword>
         <keyword>Log Many</keyword>
         <keyword>Log To Console</keyword>
         <keyword>Log Variables</keyword>
+        <keyword>Log</keyword>
         <keyword>No Operation</keyword>
-        <keyword>Pass Execution</keyword>
         <keyword>Pass Execution If</keyword>
+        <keyword>Pass Execution</keyword>
         <keyword>Regexp Escape</keyword>
         <keyword>Reload Library</keyword>
         <keyword>Remove Tags</keyword>
         <keyword>Repeat Keyword</keyword>
         <keyword>Replace Variables</keyword>
-        <keyword>Return From Keyword</keyword>
         <keyword>Return From Keyword If</keyword>
-        <keyword>Run Keyword</keyword>
+        <keyword>Return From Keyword</keyword>
         <keyword>Run Keyword And Continue On Failure</keyword>
         <keyword>Run Keyword And Expect Error</keyword>
         <keyword>Run Keyword And Ignore Error</keyword>
-        <keyword>Run Keyword And Return</keyword>
         <keyword>Run Keyword And Return If</keyword>
         <keyword>Run Keyword And Return Status</keyword>
-        <keyword>Run Keyword If</keyword>
+        <keyword>Run Keyword And Return</keyword>
         <keyword>Run Keyword If All Critical Tests Passed</keyword>
         <keyword>Run Keyword If All Tests Passed</keyword>
         <keyword>Run Keyword If Any Critical Tests Failed</keyword>
@@ -193,6 +189,8 @@
         <keyword>Run Keyword If Test Failed</keyword>
         <keyword>Run Keyword If Test Passed</keyword>
         <keyword>Run Keyword If Timeout Occurred</keyword>
+        <keyword>Run Keyword If</keyword>
+        <keyword>Run Keyword</keyword>
         <keyword>Run Keyword Unless</keyword>
         <keyword>Run Keywords</keyword>
         <keyword>Set Global Variable</keyword>
@@ -205,29 +203,29 @@
         <keyword>Set Test Documentation</keyword>
         <keyword>Set Test Message</keyword>
         <keyword>Set Test Variable</keyword>
-        <keyword>Set Variable</keyword>
         <keyword>Set Variable If</keyword>
+        <keyword>Set Variable</keyword>
         <keyword>Should Be Empty</keyword>
-        <keyword>Should Be Equal</keyword>
         <keyword>Should Be Equal As Integers</keyword>
         <keyword>Should Be Equal As Numbers</keyword>
         <keyword>Should Be Equal As Strings</keyword>
+        <keyword>Should Be Equal</keyword>
         <keyword>Should Be True</keyword>
-        <keyword>Should Contain</keyword>
         <keyword>Should Contain X Times</keyword>
+        <keyword>Should Contain</keyword>
         <keyword>Should End With</keyword>
-        <keyword>Should Match</keyword>
         <keyword>Should Match Regexp</keyword>
+        <keyword>Should Match</keyword>
         <keyword>Should Not Be Empty</keyword>
-        <keyword>Should Not Be Equal</keyword>
         <keyword>Should Not Be Equal As Integers</keyword>
         <keyword>Should Not Be Equal As Numbers</keyword>
         <keyword>Should Not Be Equal As Strings</keyword>
+        <keyword>Should Not Be Equal</keyword>
         <keyword>Should Not Be True</keyword>
         <keyword>Should Not Contain</keyword>
         <keyword>Should Not End With</keyword>
-        <keyword>Should Not Match</keyword>
         <keyword>Should Not Match Regexp</keyword>
+        <keyword>Should Not Match</keyword>
         <keyword>Should Not Start With</keyword>
         <keyword>Should Start With</keyword>
         <keyword>Sleep</keyword>
@@ -240,6 +238,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Convert To Lowercase</keyword>
         <keyword>Convert To Uppercase</keyword>
         <keyword>Decode Bytes To String</keyword>
@@ -275,6 +275,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Append To List</keyword>
         <keyword>Combine Lists</keyword>
         <keyword>Convert To Dictionary </keyword>
@@ -324,6 +326,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Close All Connections</keyword>
         <keyword>Close Connection</keyword>
         <keyword>Execute Command</keyword>
@@ -345,11 +349,13 @@
         <keyword>Write Control Character</keyword>
         <keyword>Write Until Expected Output</keyword>
     </context>
-    <context id="datetime-keyword" style-ref="datetime-keyword">        
+    <context id="datetime-keyword" style-ref="datetime-keyword">
         <!--
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Add Time To Time</keyword>
         <keyword>Convert Date</keyword>
         <keyword>Convert Time</keyword>
@@ -363,7 +369,9 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
-        <keyword>Execute Manual Step</keyword>        
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
+        <keyword>Execute Manual Step</keyword>
         <keyword>Get Selection From User</keyword>
         <keyword>Get Value From User</keyword>
         <keyword>Pause Execution </keyword>
@@ -373,6 +381,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Append To Environment Variable</keyword>
         <keyword>Append To File</keyword>
         <keyword>Copy Directory</keyword>
@@ -440,6 +450,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Get Process Id</keyword>
         <keyword>Get Process Object</keyword>
         <keyword>Get Process Result</keyword>
@@ -461,6 +473,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Add Element</keyword>
         <keyword>Clear Element</keyword>
         <keyword>Copy Element</keyword>
@@ -504,6 +518,8 @@
             Library version: 3.0
             Last modified: 03 Jan 2016
         -->
+        <prefix>\%{keyword-prefix}</prefix>
+        <suffix>\%{keyword-suffix}</suffix>
         <keyword>Set Screenshot Directory</keyword>
         <keyword>Take Screenshot</keyword>
         <keyword>Take Screenshot Without Embedding</keyword>
@@ -525,8 +541,8 @@
         <context ref="os-keyword"/>
         <context ref="process-keyword"/>
         <context ref="xml-keyword"/>
-        <context ref="screen-keyword"/>  
-        <context ref="variable"/>  
+        <context ref="screen-keyword"/>
+        <context ref="variable"/>
       </include>
     </context>
   </definitions>
